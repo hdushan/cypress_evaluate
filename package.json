@@ -1,0 +1,20 @@
+{
+  "name": "cypress_evaluate",
+  "version": "1.0.0",
+  "description": "Evaluate cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "cypress:open": "cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.8.3",
+    "eslint-plugin-chai-friendly": "^0.5.0",
+    "eslint-plugin-cypress": "^2.8.1"
+  },
+  "dependencies": {
+    "cypress-promise": "^1.0.2"
+  }
+}
