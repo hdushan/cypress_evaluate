@@ -22,5 +22,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 
+require('cypress-terminal-report').installSupport();
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
