@@ -2,3 +2,4 @@ node_modules/
 cypress/
 tests/results/screenshots/
 tests/results/videos/
+.env
