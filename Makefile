@@ -30,4 +30,4 @@ clean:
 	rm -fr ./tests/results/videos/*
 
 _test:
-	cypress run --headless --browser chrome
+	/node_modules/.bin/cypress run --headless --browser chrome
