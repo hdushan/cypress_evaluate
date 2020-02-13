@@ -11,6 +11,9 @@ endif
 test: $(DOTENV_TARGET) clean
 	docker-compose run --rm cypress make _test
 
+gitlab_test: $(DOTENV_TARGET) clean
+	make _test
+
 ##########
 # Others #
 ##########

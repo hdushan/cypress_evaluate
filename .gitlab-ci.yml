@@ -1,5 +1,5 @@
-image: "node"
+image: "hdus001/cypress-test-runner:80-4.0.1"
 
 test:
   script:
-    - make test
+    - make gitlab_test
