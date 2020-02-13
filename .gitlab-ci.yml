@@ -1,0 +1,5 @@
+image: "ubuntu"
+
+test:
+  script:
+    - make test
