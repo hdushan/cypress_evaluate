@@ -11,4 +11,5 @@ jobs:
     steps:
     - name: Lint the code
       uses: actions/checkout@v1
-      run: make lint
+
+    - run: make lint

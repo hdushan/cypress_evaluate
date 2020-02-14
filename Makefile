@@ -13,6 +13,9 @@ lint:
 lintFix:
 	docker-compose run --rm cypress make _lintFix
 
+gitlab_lint:
+	make _lint
+
 test: $(DOTENV_TARGET) clean
 	docker-compose run --rm cypress make _test
 

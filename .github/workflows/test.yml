@@ -11,6 +11,7 @@ jobs:
     steps:
     - name: Test the website
       uses: actions/checkout@v1
-      run: make test
       env:
         CYPRESS_baseUrl: https://www.amaysim.com.au
+
+    - run: make test
