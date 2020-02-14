@@ -1,27 +1,23 @@
-class MobilePlanPage {
-    constructor() {
-      this.url = ''
-    }
+var BasePage = require('./basePage');
 
-    loaded() {
-      return true
-    }
-    
-    visit() {
-      cy.visit(this.url);
-    }
-    
-    getUserAvatar() {
-      return cy.get(`[data-testid=UserAvatar]`);
-    }
-    
-    goToSignIn() {
-      const link = this.header.getSignInLink();
-      link.click();
-  
-      const signIn = new SignInPage();
-      return signIn;
-    }
+class MobilePlanPage extends BasePage {
+  constructor() {
+    super()
+    this.url = '/my-account/online/unlimited-medium'
+    this.mainElement = '#select-plan'
+    this.nextButton = 'input#step-plan'
+    this.portingSection = 'div.order_transaction_porting'
+    this.newNumberElement = '#selected-number'
   }
+
+  selectNewNumberAndGoToNextStep() {
+    cy.get(this.mainElement).get(this.portingSection).contains('new number').click()
+    cy.get(this.mainElement).get(this.portingSection).get(this.newNumberElement).text().then(mobileNum => {
+      cy.task('log', mobileNum)
+      expect(mobileNum).to.match(/\d{4}\s\d{3}\s\d{3}/)
+    });
+    cy.get(this.mainElement).get(this.nextButton).click();
+  }
+}
   
-  export default MobilePlanPage.new();
+module.exports = new MobilePlanPage();

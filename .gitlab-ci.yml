@@ -1,5 +1,7 @@
 image: "hdus001/cypress-test-runner:80-4.0.1a"
 
 test:
+  variables:
+    CYPRESS_baseUrl: 'https://www.amaysim.com.au'
   script:
     - make gitlab_test
