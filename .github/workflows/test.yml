@@ -1,0 +1,13 @@
+name: Test Myamaysim
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Test the website
+      run: make test
