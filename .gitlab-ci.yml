@@ -1,4 +1,4 @@
-image: "hdus001/cypress-test-runner:80-4.0.1"
+image: "hdus001/cypress-test-runner:80-4.0.1a"
 
 test:
   script:
