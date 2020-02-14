@@ -1,4 +1,12 @@
-image: "hdus001/cypress-test-runner:80-4.0.1a"
+image: "hdus001/cypress-test-runner:80-4.0.1b"
+
+stages:
+    - lint
+    - test
+
+lint:
+    script:
+      - make gitlab_lint
 
 test:
   variables:

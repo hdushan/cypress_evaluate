@@ -1,4 +1,4 @@
-var BasePage = require('./basePage');
+const BasePage = require('./basePage')
 
 class MobilePlanPage extends BasePage {
   constructor() {
@@ -11,13 +11,22 @@ class MobilePlanPage extends BasePage {
   }
 
   selectNewNumberAndGoToNextStep() {
-    cy.get(this.mainElement).get(this.portingSection).contains('new number').click()
-    cy.get(this.mainElement).get(this.portingSection).get(this.newNumberElement).text().then(mobileNum => {
-      cy.task('log', mobileNum)
-      expect(mobileNum).to.match(/\d{4}\s\d{3}\s\d{3}/)
-    });
-    cy.get(this.mainElement).get(this.nextButton).click();
+    cy.get(this.mainElement)
+      .get(this.portingSection)
+      .contains('new number')
+      .click()
+    cy.get(this.mainElement)
+      .get(this.portingSection)
+      .get(this.newNumberElement)
+      .text()
+      .then(mobileNum => {
+        cy.task('log', mobileNum)
+        expect(mobileNum).to.match(/\d{4}\s\d{3}\s\d{3}/)
+      })
+    cy.get(this.mainElement)
+      .get(this.nextButton)
+      .click()
   }
 }
-  
-module.exports = new MobilePlanPage();
+
+module.exports = new MobilePlanPage()

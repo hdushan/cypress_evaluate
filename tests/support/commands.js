@@ -26,6 +26,6 @@
 
 import '@testing-library/cypress/add-commands'
 
-Cypress.Commands.add("text", { prevSubject: true}, (subject, options) => {
-    return subject.text()
+Cypress.Commands.add('text', { prevSubject: true }, (subject, options) => {
+  return subject.text()
 })

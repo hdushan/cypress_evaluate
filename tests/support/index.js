@@ -17,13 +17,13 @@
 import './commands'
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from
-    // failing the test
-    return false
+  // returning false here prevents Cypress from
+  // failing the test
+  return false
 })
 
-require('cypress-terminal-report').installSupport();
-require('cypress-commands');
+require('cypress-terminal-report').installSupport()
+require('cypress-commands')
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

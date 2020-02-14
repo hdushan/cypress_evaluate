@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   cypress:
-    image: "hdus001/cypress-test-runner:80-4.0.1a"
+    image: "hdus001/cypress-test-runner:80-4.0.1b"
     working_dir: /e2e
     env_file:
       - .env

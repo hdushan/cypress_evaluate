@@ -7,6 +7,11 @@ endif
 ################
 # Entry Points #
 ################
+lint:
+	docker-compose run --rm cypress make _lint
+
+lintFix:
+	docker-compose run --rm cypress make _lintFix
 
 test: $(DOTENV_TARGET) clean
 	docker-compose run --rm cypress make _test
@@ -34,3 +39,9 @@ clean:
 
 _test:
 	/node_modules/.bin/cypress run --headless --browser chrome
+
+_lint:
+	./node_modules/eslint/bin/eslint.js tests/pageObjects
+
+_lintFix:
+	./node_modules/eslint/bin/eslint.js tests/pageObjects --fix
