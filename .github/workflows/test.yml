@@ -11,10 +11,10 @@ jobs:
     steps:
     - name: Test the website
       uses: actions/checkout@v1
-      env:
-        ENV: production
 
     - run: make test
+      env:
+        ENV: production
 
     - uses: actions/upload-artifact@v1
       with:
