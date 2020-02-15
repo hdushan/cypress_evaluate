@@ -15,3 +15,8 @@ jobs:
         CYPRESS_baseUrl: https://www.amaysim.com.au
 
     - run: make test
+
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Screenshots and Videos
+        path: tests/results/

@@ -13,3 +13,10 @@ test:
     CYPRESS_baseUrl: 'https://www.amaysim.com.au'
   script:
     - make gitlab_test
+  artifacts:
+    name: "ScreenshotsAndVideos"
+    expose_as: "ScreenshotsAndVideos"
+    paths:
+      - tests/results/
+    expire_in: 2 yrs
+    when: always
