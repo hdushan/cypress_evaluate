@@ -9,8 +9,8 @@ lint:
       - make gitlab_lint
 
 test:
-  # variables:
-  #   CYPRESS_baseUrl: 'https://www.amaysim.com.au'
+  variables:
+    ENV: 'production'
   script:
     - make gitlab_test
   artifacts:
