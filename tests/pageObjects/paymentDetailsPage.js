@@ -5,7 +5,7 @@ class PaymentDetailsPage extends BasePage {
     super()
     this.mainElement = 'section#select-payment-content'
     this.creditCardOption = 'label[data-feature-control-id="credit_card"]'
-    this.termsAndConditions = 'label[for="t_and_c_check"]'
+    this.termsAndConditions = 'input#t_and_c_check'
     this.paymentButton = 'input#order_submit'
   }
 
@@ -15,7 +15,7 @@ class PaymentDetailsPage extends BasePage {
       .click()
     cy.get(this.mainElement)
       .get(this.termsAndConditions)
-      .click()
+      .click({ force: true })
     cy.get(this.mainElement)
       .get(this.paymentButton)
       .click()

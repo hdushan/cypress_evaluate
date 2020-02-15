@@ -99,7 +99,7 @@ class PersonalDetailsPage extends BasePage {
     cy.get(this.mainElement)
       .get(this.addressDropdown)
       .get(this.addressDropdownMatches)
-      .contains(address)
+      .contains(address, { matchCase: false })
       .then(addressMatch => {
         cy.wrap(addressMatch).contains(address)
         addressMatch.click()
