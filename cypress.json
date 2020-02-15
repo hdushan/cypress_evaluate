@@ -1,9 +1,10 @@
 {
-    "baseUrl": "https://www.amaysim.com.au",
     "integrationFolder":"tests",
     "testFiles":"**/*_spec.js",
     "screenshotsFolder":"tests/results/screenshots",
     "supportFile":"tests/support",
     "videosFolder":"tests/results/videos",
-    "pluginsFile":"tests/plugins"
+    "pluginsFile":"tests/plugins",
+    "fixturesFolder":"tests/fixtures",
+    "chromeWebSecurity":false
 }

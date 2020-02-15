@@ -17,14 +17,15 @@ class PersonalDetailsPage extends BasePage {
     this.nextButton = 'input#step-address'
   }
 
-  fillNewCustomerDetailsAndGoToNextStep() {
+  fillNewCustomerDetailsAndGoToNextStep(userDetails) {
     cy.get(this.mainElement).should('exist')
-    this.fillNameFields('TestF', 'TestL')
-    this.fillDOB('01/01/1980')
-    this.fillContactNumber('0404788547')
-    this.fillEmail('aaabbbccc@mail.com')
-    this.fillPassword('AWqasde321')
-    this.fillAddress('Level 6 17-19 Bridge St, Sydney NSW 2000')
+    const randomizedUser = PersonalDetailsPage.names(userDetails.namePrefix, PersonalDetailsPage.randomString(), userDetails.emailDomain)
+    this.fillNameFields(randomizedUser.firstName, randomizedUser.lastName)
+    this.fillDOB(userDetails.dob)
+    this.fillContactNumber(userDetails.contactNumber)
+    this.fillEmail(randomizedUser.email)
+    this.fillPassword(userDetails.password)
+    this.fillAddress(userDetails.address)
     this.goToPaymentStep()
   }
 
@@ -73,6 +74,7 @@ class PersonalDetailsPage extends BasePage {
       .get(this.emailField)
       .type(email)
       .should('have.value', email)
+    cy.task('log', email)
   }
 
   fillPassword(password) {
@@ -111,6 +113,21 @@ class PersonalDetailsPage extends BasePage {
     cy.get(this.mainElement)
       .get(this.nextButton)
       .click()
+  }
+
+  static names(prefix, randomString, emailDomain) {
+    return {
+      firstName: `${prefix}First${randomString}`,
+      lastName: `${prefix}Last${randomString}`,
+      email: `${prefix}.${randomString}@${emailDomain}`,
+    }
+  }
+
+  static randomString() {
+    return Math.random()
+      .toString(36)
+      .replace(/[^a-z]+/g, '')
+      .substr(0, 6)
   }
 }
 

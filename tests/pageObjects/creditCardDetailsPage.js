@@ -9,9 +9,10 @@ class CreditCardDetailsPage extends BasePage {
     this.creditCardCVVField = 'input#credit_card_card_security_code'
   }
 
-  fillCreditCardDetails() {
-    this.fillCreditCardNumber('4111111111111111')
-    this.fillCreditCardExpiry('01/22')
+  fillCreditCardDetails(card) {
+    this.fillCreditCardNumber(card.number)
+    this.fillCreditCardExpiry(card.expiryDate)
+    this.fillCreditCardCVV(card.cvv)
   }
 
   fillCreditCardNumber(cardNumber) {

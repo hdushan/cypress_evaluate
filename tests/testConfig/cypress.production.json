@@ -1,0 +1,6 @@
+{
+    "baseUrl": "https://www.amaysim.com.au",
+    "env": {
+        "ENV": "production"
+    }
+}
