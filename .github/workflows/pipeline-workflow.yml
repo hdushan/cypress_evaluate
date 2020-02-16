@@ -9,7 +9,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Lint
-        uses: ./github/actions/lint
+        run: make lint
   testMobile:
     name: Greeting
     needs: lint
