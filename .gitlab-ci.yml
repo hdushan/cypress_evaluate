@@ -1,19 +1,18 @@
 image: "hdus001/cypress-test-runner:80-4.0.1b"
 
 stages:
-    - lint
-    - testMobile
-    - testEnergy
+  - lint
+  - test
 
 lint:
-    script:
-      - make gitlab_lint
+  stage: lint
+  script: make gitlab_lint
 
 testMobile:
+  stage: test
   variables:
     ENV: 'production'
-  script:
-    - make gitlab_testMobile
+  script: make gitlab_testMobile
   artifacts:
     name: "ScreenshotsAndVideosMobile"
     expose_as: "ScreenshotsAndVideosMobile"
@@ -23,10 +22,10 @@ testMobile:
     when: always
 
 testEnergy:
+  stage: test
   variables:
     ENV: 'production'
-  script:
-    - make gitlab_testEnergy
+  script: make gitlab_testEnergy
   artifacts:
     name: "ScreenshotsAndVideosEnergy"
     expose_as: "ScreenshotsAndVideosEnergy"
