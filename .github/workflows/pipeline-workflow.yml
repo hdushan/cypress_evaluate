@@ -1,0 +1,44 @@
+name: MyAmaysim pipeline
+on: [push]
+
+jobs:
+  lint:
+    name: Greeting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Lint
+        uses: ./github/actions/lint
+  testMobile:
+    name: Greeting
+    needs: lint
+    runs-on: ubuntu-latest
+    env:
+      ENV: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: TestMobile
+        run: make testMobile
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: Screenshots and Videos
+          path: tests/results/
+  testEnergy:
+    name: Greeting
+    needs: lint
+    runs-on: ubuntu-latest
+    env:
+      ENV: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: TestEnergy
+        run: make testEnergy
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: Screenshots and Videos
+          path: tests/results/
