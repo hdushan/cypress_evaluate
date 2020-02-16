@@ -7,7 +7,7 @@
     "pluginsFile":"tests/plugins",
     "fixturesFolder":"tests/fixtures",
     "chromeWebSecurity":false,
-    "viewportHeight": 990,
-    "viewportWidth": 1500
+    "viewportHeight": 800,
+    "viewportWidth": 1280
 
 }
