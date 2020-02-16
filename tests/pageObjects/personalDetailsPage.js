@@ -19,7 +19,7 @@ class PersonalDetailsPage extends BasePage {
 
   fillNewCustomerDetailsAndGoToNextStep(userDetails) {
     cy.get(this.mainElement).should('exist')
-    const randomizedUser = PersonalDetailsPage.names(userDetails.namePrefix, PersonalDetailsPage.randomString(), userDetails.emailDomain)
+    const randomizedUser = BasePage.names(userDetails.namePrefix, BasePage.randomString(), userDetails.emailDomain)
     this.fillNameFields(randomizedUser.firstName, randomizedUser.lastName)
     this.fillDOB(userDetails.dob)
     this.fillContactNumber(userDetails.contactNumber)
@@ -113,21 +113,6 @@ class PersonalDetailsPage extends BasePage {
     cy.get(this.mainElement)
       .get(this.nextButton)
       .click()
-  }
-
-  static names(prefix, randomString, emailDomain) {
-    return {
-      firstName: `${prefix}First${randomString}`,
-      lastName: `${prefix}Last${randomString}`,
-      email: `${prefix}.${randomString}@${emailDomain}`,
-    }
-  }
-
-  static randomString() {
-    return Math.random()
-      .toString(36)
-      .replace(/[^a-z]+/g, '')
-      .substr(0, 6)
   }
 }
 

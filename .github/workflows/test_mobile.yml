@@ -1,4 +1,4 @@
-name: Test Myamaysim
+name: Test Myamaysim Mobile
 
 on: [push]
 
@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Test the website
+    - name: Test the online mobile funnel
       uses: actions/checkout@v1
 
-    - run: make test
+    - run: make testMobile
       env:
         ENV: production
 

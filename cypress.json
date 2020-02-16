@@ -6,5 +6,8 @@
     "videosFolder":"tests/results/videos",
     "pluginsFile":"tests/plugins",
     "fixturesFolder":"tests/fixtures",
-    "chromeWebSecurity":false
+    "chromeWebSecurity":false,
+    "viewportHeight": 990,
+    "viewportWidth": 1500
+
 }

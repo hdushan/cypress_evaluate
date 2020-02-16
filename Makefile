@@ -16,11 +16,23 @@ lintFix:
 gitlab_lint:
 	make _lint
 
-test: $(DOTENV_TARGET) clean
+test: $(DOTENV_TARGET) clean lint
 	docker-compose run --rm cypress make _test
+
+testMobile: $(DOTENV_TARGET) clean
+	docker-compose run --rm cypress make _testMobile
+
+testEnergy: $(DOTENV_TARGET) clean
+	docker-compose run --rm cypress make _testEnergy
 
 gitlab_test: $(DOTENV_TARGET) clean
 	make _test
+
+gitlab_testMobile: $(DOTENV_TARGET) clean
+	make _testMobile
+
+gitlab_testEnergy: $(DOTENV_TARGET) clean
+	make _testEnergy
 
 ##########
 # Others #
@@ -42,6 +54,12 @@ clean:
 
 _test:
 	/node_modules/.bin/cypress run --headless --browser chrome
+
+_testMobile:
+	/node_modules/.bin/cypress run --headless --browser chrome --spec "tests/*mobile*spec.js"
+
+_testEnergy:
+	/node_modules/.bin/cypress run --headless --browser chrome --spec "tests/*energy*spec.js"
 
 _lint:
 	/node_modules/eslint/bin/eslint.js tests/pageObjects

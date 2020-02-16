@@ -22,7 +22,7 @@ class CreditCardDetailsPage extends BasePage {
     cy.get(this.mainElement)
       .get(this.creditCardNumberField)
       .type(cardNumber)
-      .should('have.value', CreditCardDetailsPage.formatCreditCardNumber(cardNumber))
+      .should('have.value', BasePage.formatCreditCardNumber(cardNumber))
   }
 
   fillCreditCardExpiry(expiryDate) {
@@ -32,7 +32,7 @@ class CreditCardDetailsPage extends BasePage {
     cy.get(this.mainElement)
       .get(this.creditCardExpiryField)
       .type(expiryDate)
-      .should('have.value', CreditCardDetailsPage.formatCreditCardExpiryDate(expiryDate))
+      .should('have.value', BasePage.formatCreditCardExpiryDate(expiryDate))
   }
 
   fillCreditCardCVV(cvv) {
@@ -43,22 +43,6 @@ class CreditCardDetailsPage extends BasePage {
       .get(this.creditCardCVVField)
       .type(cvv)
       .should('have.value', cvv)
-  }
-
-  static formatCreditCardNumber(unformattedNumber) {
-    const pureNumberArray = unformattedNumber.split('')
-    const formattedNumberArray = []
-    for (let i = 0; i < pureNumberArray.length; i += 1) {
-      if (i !== 0 && i % 4 === 0) {
-        formattedNumberArray.push(' ')
-      }
-      formattedNumberArray.push(pureNumberArray[i])
-    }
-    return formattedNumberArray.join('')
-  }
-
-  static formatCreditCardExpiryDate(unformattedExpiryDate) {
-    return unformattedExpiryDate.replace(/\//gi, ' / ')
   }
 }
 

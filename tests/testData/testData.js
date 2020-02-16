@@ -25,6 +25,13 @@ const environmentSpecificTestData = {
             number: '4111111111111111',
             expiryDate: '01/21',
             cvv: '111'
+        },
+        nswHome: {
+            address: '123 Pacific Rd, PALM BEACH NSW 2108',
+            gas: true,
+            gasUsage: "low",
+            solar: false,
+            concessions: false
         }
     }
 }
