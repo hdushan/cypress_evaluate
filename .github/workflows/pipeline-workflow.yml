@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   lint:
-    name: Greeting
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -11,7 +11,7 @@ jobs:
       - name: Lint
         run: make lint
   testMobile:
-    name: Greeting
+    name: Test Mobile
     needs: lint
     runs-on: ubuntu-latest
     env:
@@ -27,7 +27,7 @@ jobs:
           name: Screenshots and Videos
           path: tests/results/
   testEnergy:
-    name: Greeting
+    name: Test Energy
     needs: lint
     runs-on: ubuntu-latest
     env:
