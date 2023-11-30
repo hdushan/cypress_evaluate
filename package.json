@@ -25,7 +25,7 @@
   "dependencies": {
     "cypress-commands": "^1.0.0",
     "cypress-terminal-report": "^0.2.2",
-    "@testing-library/cypress": "^5.3.0",
+    "@testing-library/cypress": "^7.0.0",
     "cypress-promise": "^1.0.2"
   }
 }
